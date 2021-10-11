@@ -1,13 +1,14 @@
+import "reflect-metadata";
 import express from "express";
+
+import { router } from "./routes";
+
+import "./database";
 
 const app = express();
 
+app.use(express.json());
 
-
-app.get("/test", (req, res) => {
-    return res.status(200).send("Olá Express");
-});
-
-
+app.use(router);
 
 app.listen(3001, () => console.log("server rodando na porta 3001"));
